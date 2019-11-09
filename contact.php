@@ -1,3 +1,26 @@
+<?php
+    if($_GET){
+            if(strcmp($_GET['sucesso'] ."", "1") == 0){
+                    echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+                              <script type='text/javascript' src='js/bootstrap.js'></script>
+                              <script type='text/javascript'>
+                              $(window).load(function() {
+                                  $('#success').modal('show');
+                              });
+                              </script>";
+            } else {
+                echo "<script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+                              <script type='text/javascript' src='js/bootstrap.js'></script>
+                              <script type='text/javascript'>
+                              $(window).load(function() {
+                                  $('#error').modal('show');
+                              });
+                              </script>";
+            }
+    }
+?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -57,7 +80,7 @@
                                         <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="contact.php">Contact</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="nav-item"><a href="#" class="primary_btn">join us</a></li>
@@ -77,7 +100,7 @@
 					<div class="banner_content text-center">
 						<div class="page_link">
 							<a href="index.html">Home</a>
-							<a href="contact.html">CONTACT</a>
+							<a href="contact.php">CONTACT</a>
 						</div>
 						<h2>CONTACT US</h2>
 						
@@ -125,9 +148,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">    
-                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Insira a "></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="1" placeholder="Insira a mensagem"></textarea>
                                     <input name="para" value="r" type="hidden">
-                                    <input name="page" value="../../../contact.html" type="hidden">
+                                    <input name="page" value="../../../contact.php" type="hidden">
                                     <input name="motivo" value="contato" type="hidden">
                                 </div>
                             </div>
@@ -233,8 +256,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close"></i>
                         </button>
-                        <h2>Thank you</h2>
-                        <p>Your message is successfully sent...</p>
+                        <h2>Obrigado!</h2>
+                        <p>Sua mensagem foi enviada com sucesso...</p>
                     </div>
                 </div>
             </div>
@@ -249,8 +272,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="fa fa-close"></i>
                         </button>
-                        <h2>Sorry !</h2>
-                        <p> Something went wrong </p>
+                        <h2>Desculpe :(</h2>
+                        <p>Algo deu Errado</p>
                     </div>
                 </div>
             </div>

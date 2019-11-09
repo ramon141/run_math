@@ -94,7 +94,7 @@
 							</li>
 							<li class="nav-item"><a class="nav-link" href="gallery.html">Blog</a>
 
-							<li class="nav-item"><a class="nav-link" href="contact.html">Contate-nos</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact.php">Contate-nos</a></li>
 							<li class="nav-item"><a class="nav-link"><button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#visulUsuarioModal">
 								Login
 							</button></a></li>
