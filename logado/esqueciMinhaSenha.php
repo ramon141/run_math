@@ -4,7 +4,7 @@
 	if($_POST){
 		require_once("../php/conexao.php");
 
-		
+		$erro = false;
 		$comprou = $_POST['radios'];
 		$nome = $_POST['nome'];
 		$email = $_POST['emailCompleto'];
@@ -23,11 +23,13 @@
 			$total = $total + 15;
 
 			while ($fetch2 = mysqli_fetch_row($query2)) {
-				if(strcmp($fetch2[2]."", "NULL") == 0){
+				if(strcmp($fetch2[1]."", "NULL") == 0){
 					$mensagem = "Sem email";
+                                        $erro = true;
 				} else if(strcmp($fetch2[1]."", $email) == 0){
 					$total = $total + 24;
 				} else {
+                                        $erro = true;
 					$mensagem = "O email cadastrado na sua conta não corresponde ao informado.";
 				}
 			}
@@ -47,14 +49,14 @@
 			}
 
 
-			if($total >= 70){
+			if($total >= 70 && $erro == false){
 				$senhaSem = substr(md5(uniqid(rand())), 5);	
 				$senha = md5($senhaSem);
 				$query = mysqli_query($connection, "UPDATE `usuario` SET `senha` = '$senha' WHERE `usuario`.`nome_de_usuario` = '$nomeDeUsuario'");
 				
 
-				header("Location: http://ramonbarbosa.dx.am/sendMail/index.php?email=". $email. "&senha=".$senhaSem);
-			} else {
+				header("Location: http://localhost/run_math_site/php/email/PHPMailer/sendMail.php?para=". $email. "&senha=" . $senhaSem . "&assunto=Ops... Esqueci minha Senha" . "&page=../../../logado/esqueciMinhaSenha.php&sucesso=1&motivo=forgetPassword");
+                        } else if ($erro == false){
 				$mensagem = "Infelizmente os dados coletados não são sufucientes para comprovar que essa conta seja sua.";
 			}
 		} else {
@@ -66,7 +68,14 @@
 		}
 
 
-	}
+	} else {
+            if ($_GET && $_GET['sucesso'] == 1){
+                $mensagem = "A Senha foi alterada com sucesso!";
+            } else if ($_GET && $_GET['sucesso'] == 0){
+                $mensagem = "Erro ao alterar a senha";
+            }
+        }
+        
 ?>
 
 

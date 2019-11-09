@@ -214,7 +214,7 @@
 								}
 							}
 						?>
-						<a style="float: left; margin-left: 35%;" href="esqueciMinhaSenha.php">Esqueci minha senha</a>
+						<a style="float: left; margin-left: 35%;" href="logado/esqueciMinhaSenha.php">Esqueci minha senha</a>
 						</div>
 						<br>
 						<div class="modal-footer">
