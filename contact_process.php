@@ -1,6 +1,6 @@
 <?php
 
-    $to = "rockybd1995@gmail.com";
+    $to = "ramonbarbosa123456789@gmail.com";
     $from = $_REQUEST['email'];
     $name = $_REQUEST['name'];
     $subject = $_REQUEST['subject'];
@@ -18,20 +18,20 @@
     $logo = 'img/logo.png';
     $link = '#';
 
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+	$str = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
+	$str .= "<table style='width: 100%;'>";
+	$str .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
+	$str .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
+	$str .= "</td></tr></thead><tbody><tr>";
+	$str .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
+	$str .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
+	$str .= "</tr>";
+	$str .= "<tr><td style='border:none;'><strong>Subject:</strong> {$subject}</td></tr>";
+	$str .= "<tr><td></td></tr>";
+	$str .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
+	$str .= "</tbody></table>";
+	$str .= "</body></html>";
 
-    $send = mail($to, $subject, $body, $headers);
+    $send = mail($to, $subject, $str, $headers);
 
 ?>
